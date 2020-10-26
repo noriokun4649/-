@@ -34,10 +34,10 @@
                                 <RowDefinition Height="25*"/>
                                 <RowDefinition Height="21*"/>
                             </Grid.RowDefinitions>
-                            <RadioButton Content="親フォルダ内に保存" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,4,0,0" IsChecked="True" Height="15" Width="144"/>
-                            <RadioButton Content="任意の保存先へ保存" x:Name="othersave" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Margin="0,5,0,0" Height="15" Width="123"/>
-                            <TextBox Grid.Row="2" IsEnabled="{Binding ElementName=othersave,Path=IsChecked}"/>
-                            <Button Margin="5,0,0,0" Content="開く" Grid.Row="2" IsEnabled="{Binding ElementName=othersave,Path=IsChecked}" Grid.Column="1"/>
+                            <RadioButton x:Name="SaveAsParentRadioButton" Content="親フォルダ内に保存" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,4,0,0" IsChecked="True" Height="15" Width="144"/>
+                            <RadioButton Content="任意の保存先へ保存" x:Name="SaveAsOtherRadioButton" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Margin="0,5,0,0" Height="15" Width="123"/>
+                            <TextBox x:Name="SaveAsParentTextBox" Grid.Row="2" IsEnabled="{Binding IsChecked, ElementName=SaveAsOtherRadioButton}"/>
+                            <Button x:Name="SaveAsOtherButton" Margin="5,0,0,0" Content="開く" Grid.Row="2" IsEnabled="{Binding IsChecked, ElementName=SaveAsOtherRadioButton}" Grid.Column="1"/>
 
                         </Grid>
                     </GroupBox>
@@ -68,8 +68,8 @@
                             <CheckBox Content="拡張子書き換え" x:Name="Extension"/>
                         </GroupBox.Header>
                         <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  IsEnabled="{Binding IsChecked, ElementName=Extension}">
-                            <RadioButton Content="小文字" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" IsChecked="True"/>
-                            <RadioButton Content="大文字" HorizontalAlignment="Left" Margin="115,5,0,0" VerticalAlignment="Top"/>
+                            <RadioButton x:Name="ExtensionSmallRadioButton" Content="小文字" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" IsChecked="True"/>
+                            <RadioButton x:Name="ExtensionLargeRadioButton" Content="大文字" HorizontalAlignment="Left" Margin="115,5,0,0" VerticalAlignment="Top"/>
                         </Grid>
                     </GroupBox>
                     <GroupBox Header="作成日時変更" Margin="10,164,10,8">
@@ -80,16 +80,16 @@
                             </Grid.RowDefinitions>
                             <GroupBox Margin="1,1,1,1" Header="オリジナルファイル" >
                                 <Grid Margin="1,1,1,1">
-                                    <RadioButton Margin="0,0,0,48" Content="変換日時にする" />
-                                    <RadioButton Margin="0,22,0,24"  Content="オリジナルを引き継ぐ" IsChecked="True" />
-                                    <CheckBox Margin="0,46,0,0" Content="更新/アクセス日時を変換日時にする" IsChecked="True"  />
+                                    <RadioButton x:Name="DateUpdateAsOriginalRadioButton" Margin="0,0,0,48" Content="変換日時にする" />
+                                    <RadioButton x:Name="DateNoUpdateAsOriginalRadioButton" Margin="0,22,0,24"  Content="オリジナルを引き継ぐ" IsChecked="True" />
+                                    <CheckBox x:Name="DateUpdateAsOriginalCheckBox" Margin="0,46,0,0" Content="更新/アクセス日時を変換日時にする" IsChecked="True"  />
                                 </Grid>
                             </GroupBox>
                             <GroupBox Margin="1,1,1,0" Header="リサイズ後ファイル" Grid.Row="1" >
                                 <Grid Margin="1,1,1,1">
-                                    <RadioButton Margin="0,0,0,48" Content="変換日時にする" />
-                                    <RadioButton Margin="0,22,0,24"  Content="オリジナルを引き継ぐ" IsChecked="True" />
-                                    <CheckBox Margin="0,46,0,0" Content="更新/アクセス日時を変換日時にする" IsChecked="True"  />
+                                    <RadioButton x:Name="DateUpdateAsResizeRadioButton" Margin="0,0,0,48" Content="変換日時にする" />
+                                    <RadioButton x:Name="DateNoUpdateAsResizeRadioButton" Margin="0,22,0,24"  Content="オリジナルを引き継ぐ" IsChecked="True" />
+                                    <CheckBox x:Name="DateUpdateAsResizeCheckBox" Margin="0,46,0,0" Content="更新/アクセス日時を変換日時にする" IsChecked="True"  />
                                 </Grid>
                             </GroupBox>
                         </Grid>
@@ -104,21 +104,21 @@
                         <RadioButton x:Name="NumMode" Content="数値入力" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" IsChecked="True"/>
                         <Grid Margin="23,28,10,0" Height="28" VerticalAlignment="Top" IsEnabled="{Binding IsChecked, ElementName=NumMode}">
                             <Label Content="単位:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                            <RadioButton Content="パーセント" HorizontalAlignment="Left" Margin="42,6,0,0" VerticalAlignment="Top" IsChecked="True"/>
-                            <RadioButton Content="ピクセル" HorizontalAlignment="Left" Margin="110,6,0,0" VerticalAlignment="Top"/>
+                            <RadioButton x:Name="Parent" Content="パーセント" HorizontalAlignment="Left" Margin="42,6,0,0" VerticalAlignment="Top" IsChecked="True"/>
+                            <RadioButton x:Name="Pixel" Content="ピクセル" HorizontalAlignment="Left" Margin="110,6,0,0" VerticalAlignment="Top"/>
                         </Grid>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="23,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" IsEnabled="{Binding IsChecked, ElementName=NumMode}"/>
+                        <TextBox x:Name="WidthTextBox" HorizontalAlignment="Left" Height="23" Margin="23,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" IsEnabled="{Binding IsChecked, ElementName=NumMode}"/>
                         <Label Content="×" HorizontalAlignment="Left" Margin="110,56,0,0" VerticalAlignment="Top" FontSize="16"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="136,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" IsEnabled="{Binding IsChecked, ElementName=NumMode}"/>
+                        <TextBox x:Name="HeightTextBox" HorizontalAlignment="Left" Height="23" Margin="136,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" IsEnabled="{Binding IsChecked, ElementName=NumMode}"/>
                         <CheckBox Content="縦横比を維持する" HorizontalAlignment="Left" Margin="23,92,0,0" VerticalAlignment="Top" IsChecked="True" IsEnabled="{Binding IsChecked, ElementName=NumMode}"/>
                         <RadioButton x:Name="PresetMode" Content="プリセット" HorizontalAlignment="Left" Margin="10,112,0,0" VerticalAlignment="Top"/>
-                        <ComboBox Margin="23,132,10,0" VerticalAlignment="Top"  IsEnabled="{Binding IsChecked, ElementName=PresetMode}"/>
-                        <Button Content="プリセットの編集" Margin="121,159,10,0" VerticalAlignment="Top"/>
+                        <ComboBox x:Name="PresetComboBox" Margin="23,132,10,0" VerticalAlignment="Top"  IsEnabled="{Binding IsChecked, ElementName=PresetMode}"/>
+                        <Button x:Name="PresetEditButton" Content="プリセットの編集" Margin="121,159,10,0" VerticalAlignment="Top"/>
 
                     </Grid>
                 </GroupBox>
                 <GroupBox Header="リサイズ手法" Height="48" Margin="10,208,10,0" VerticalAlignment="Top">
-                    <ComboBox Margin="1,1,1,1" SelectedIndex="0">
+                    <ComboBox x:Name="ResizeModeComboBox" Margin="1,1,1,1" SelectedIndex="0">
                         <ListBoxItem Content="ニアレストネイバー法"/>
                         <ListBoxItem Content="バイリニア法"/>
                         <ListBoxItem Content="バイキュービック法"/>
@@ -126,19 +126,19 @@
                 </GroupBox>
                 <GroupBox Header="画像ファイル形式" Margin="10,261,10,0" Height="66" VerticalAlignment="Top">
                     <Grid Margin="1,1,1,1">
-                        <RadioButton Content="jpeg" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top"/>
-                        <RadioButton Content="png" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top"/>
-                        <RadioButton Content="bmp" HorizontalAlignment="Left" Margin="128,4,0,0" VerticalAlignment="Top"/>
-                        <RadioButton Content="変更しない" HorizontalAlignment="Left" Margin="128,24,0,0" VerticalAlignment="Top" IsChecked="True"/>
+                        <RadioButton x:Name="JpegRadioButton" Content="jpeg" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top"/>
+                        <RadioButton x:Name="PngRadioButton" Content="png" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top"/>
+                        <RadioButton x:Name="BmpRadioButton" Content="bmp" HorizontalAlignment="Left" Margin="128,4,0,0" VerticalAlignment="Top"/>
+                        <RadioButton x:Name="NoChangeRadioButton" Content="変更しない" HorizontalAlignment="Left" Margin="128,24,0,0" VerticalAlignment="Top" IsChecked="True"/>
                     </Grid>
                 </GroupBox>
                 <GroupBox Height="45" VerticalAlignment="Top" Margin="10,332,10,0">
                     <GroupBox.Header>
-                        <CheckBox Content="カラープロファイル" x:Name="color"/>
+                        <CheckBox Content="カラープロファイル" x:Name="ColorProfileCheckBox"/>
                     </GroupBox.Header>
-                    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  IsEnabled="{Binding ElementName=color,Path=IsChecked}">
-                        <RadioButton Content="sRGB" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" IsChecked="True"/>
-                        <RadioButton Content="Adobe RGB" HorizontalAlignment="Left" Margin="115,5,0,0" VerticalAlignment="Top"/>
+                    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  IsEnabled="{Binding IsChecked, ElementName=ColorProfileCheckBox}">
+                        <RadioButton x:Name="sRGBRadioButton" Content="sRGB" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" IsChecked="True"/>
+                        <RadioButton x:Name="AdobeRGBRadioButton" Content="Adobe RGB" HorizontalAlignment="Left" Margin="115,5,0,0" VerticalAlignment="Top"/>
                     </Grid>
                 </GroupBox>
             </Grid>
@@ -146,7 +146,7 @@
         <GroupBox Grid.Column="2" Header="その他の設定" Margin="10,12,10,0">
             <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="1,1,1,1">
                 <CheckBox Content="常に上書き保存する" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Background="White" Foreground="Red" BorderBrush="Red"/>
-                <CheckBox Content="リサイズ後に保存先を開く" HorizontalAlignment="Left" Margin="0,30,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="ResizeAsOpenCheckBox" Content="リサイズ後に保存先を開く" HorizontalAlignment="Left" Margin="0,30,0,0" VerticalAlignment="Top"/>
                 <CheckBox x:Name="TopView" Content="常に最前面で表示する" HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top"/>
                 <CheckBox x:Name="subFolder" Content="サブフォルダの画像&#xD;&#xA;も変換対象にする" HorizontalAlignment="Left" Margin="0,70,0,0" VerticalAlignment="Top" Width="140"/>
             </Grid>
@@ -158,7 +158,7 @@
                     <ColumnDefinition Width="39"/>
                 </Grid.ColumnDefinitions>
                 <ProgressBar x:Name="ImageResizeProgress" Margin="0,1" Background="White"/>
-                <Button Content="中止" Margin="5,1,0,1" RenderTransformOrigin="0.5,0.5" Grid.Column="1"/>
+                <Button x:Name="CancelButton" Content="中止" Margin="5,1,0,1" RenderTransformOrigin="0.5,0.5" Grid.Column="1"/>
             </Grid>
         </GroupBox>
 
