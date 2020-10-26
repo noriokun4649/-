@@ -8,11 +8,11 @@ using System.Windows;
 // アセンブリに関連付けられている情報を変更するには、
 // これらの属性値を変更してください。
 [assembly: AssemblyTitle("画像振り分け君")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("画像をリサイズ後に特定のフォルダへ振り分けます。")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("画像振り分け君")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
+[assembly: AssemblyCopyright("Copyright ©  2020 noriokun4649")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
