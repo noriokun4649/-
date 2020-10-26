@@ -128,8 +128,8 @@
                     <Grid Margin="1,1,1,1">
                         <RadioButton x:Name="JpegRadioButton" Content="jpeg" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top"/>
                         <RadioButton x:Name="PngRadioButton" Content="png" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top"/>
-                        <RadioButton x:Name="BmpRadioButton" Content="bmp" HorizontalAlignment="Left" Margin="128,4,0,0" VerticalAlignment="Top"/>
-                        <RadioButton x:Name="NoChangeRadioButton" Content="変更しない" HorizontalAlignment="Left" Margin="128,24,0,0" VerticalAlignment="Top" IsChecked="True"/>
+                        <RadioButton x:Name="BmpRadioButton" Content="bmp" HorizontalAlignment="Left" Margin="114,4,0,0" VerticalAlignment="Top"/>
+                        <RadioButton x:Name="NoChangeRadioButton" Content="変更しない" HorizontalAlignment="Left" Margin="114,24,0,0" VerticalAlignment="Top" IsChecked="True"/>
                     </Grid>
                 </GroupBox>
                 <GroupBox Height="45" VerticalAlignment="Top" Margin="10,332,10,0">
