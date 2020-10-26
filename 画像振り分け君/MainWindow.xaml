@@ -119,9 +119,9 @@
                 </GroupBox>
                 <GroupBox Header="リサイズ手法" Height="48" Margin="10,208,10,0" VerticalAlignment="Top">
                     <ComboBox x:Name="ResizeModeComboBox" Margin="1,1,1,1" SelectedIndex="0">
-                        <ListBoxItem Content="ニアレストネイバー法"/>
-                        <ListBoxItem Content="バイリニア法"/>
-                        <ListBoxItem Content="バイキュービック法"/>
+                        <TextBlock Text="ニアレストネイバー法"/>
+                        <TextBlock Text="バイリニア法"/>
+                        <TextBlock Text="バイキュービック法"/>
                     </ComboBox>
                 </GroupBox>
                 <GroupBox Header="画像ファイル形式" Margin="10,261,10,0" Height="66" VerticalAlignment="Top">
