@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ImageResizeFolder"
         mc:Ignorable="d"
-        Title="画像リサイズ振り分け君" Height="460" Width="760" MinWidth="760" MinHeight="460" ResizeMode="NoResize" Topmost="{Binding IsChecked, ElementName=TopView}">
+        Title="画像リサイズ振り分け君" Height="460" Width="760" MinWidth="760" MinHeight="460" ResizeMode="NoResize" Topmost="{Binding IsChecked, ElementName=TopMost}">
     <Grid Background="#FF04BED1">
         <Grid.RowDefinitions>
             <RowDefinition Height="205*"/>
@@ -108,9 +108,9 @@
                             <RadioButton x:Name="Pixel" Content="ピクセル" HorizontalAlignment="Left" Margin="110,6,0,0" VerticalAlignment="Top"/>
                         </Grid>
                         <TextBox x:Name="WidthTextBox" HorizontalAlignment="Left" Height="23" Margin="23,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" IsEnabled="{Binding IsChecked, ElementName=NumMode}"/>
-                        <Label Content="×" HorizontalAlignment="Left" Margin="110,56,0,0" VerticalAlignment="Top" FontSize="16"/>
+                        <Label Content="×" HorizontalAlignment="Center" Margin="107,56,94,0" VerticalAlignment="Top" FontSize="16" Width="24"/>
                         <TextBox x:Name="HeightTextBox" HorizontalAlignment="Left" Height="23" Margin="136,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" IsEnabled="{Binding IsChecked, ElementName=NumMode}"/>
-                        <CheckBox Content="縦横比を維持する" HorizontalAlignment="Left" Margin="23,92,0,0" VerticalAlignment="Top" IsChecked="True" IsEnabled="{Binding IsChecked, ElementName=NumMode}"/>
+                        <CheckBox x:Name="AspectCheckBox" Content="縦横比を維持する" HorizontalAlignment="Left" Margin="23,92,0,0" VerticalAlignment="Top" IsChecked="True" IsEnabled="{Binding IsChecked, ElementName=NumMode}"/>
                         <RadioButton x:Name="PresetMode" Content="プリセット" HorizontalAlignment="Left" Margin="10,112,0,0" VerticalAlignment="Top"/>
                         <ComboBox x:Name="PresetComboBox" Margin="23,132,10,0" VerticalAlignment="Top"  IsEnabled="{Binding IsChecked, ElementName=PresetMode}"/>
                         <Button x:Name="PresetEditButton" Content="プリセットの編集" Margin="121,159,10,0" VerticalAlignment="Top"/>
@@ -147,7 +147,7 @@
             <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="1,1,1,1">
                 <CheckBox Content="常に上書き保存する" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Background="White" Foreground="Red" BorderBrush="Red"/>
                 <CheckBox x:Name="ResizeAsOpenCheckBox" Content="リサイズ後に保存先を開く" HorizontalAlignment="Left" Margin="0,30,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="TopView" Content="常に最前面で表示する" HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="TopMost" Content="常に最前面で表示する" HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top"/>
                 <CheckBox x:Name="subFolder" Content="サブフォルダの画像&#xD;&#xA;も変換対象にする" HorizontalAlignment="Left" Margin="0,70,0,0" VerticalAlignment="Top" Width="140"/>
             </Grid>
         </GroupBox>
